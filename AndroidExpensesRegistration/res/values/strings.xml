@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android Expenses Registration</string>
+    <string name="expense_reg_access">Registro de Despesas</string>
+    <string name="administration_access">Administração</string>
+    <string name="back">Voltar</string>
+    <string name="select">Selecione...</string>
+    <string name="expense_description">Descrição da Despesa:</string>
+    <string name="date_of_expense">Data da Despesa:</string>
+    <string name="expense_reg">Registro de Despesa:</string>
+    <string name="expense_type">Tipo de Despesa:</string>
+    <string name="change">Modificar</string>
+    <string name="value">Valor:</string>
+    <string name="quantity">Quantidade:</string>
+    <string name="reports">Relatórios</string>
+    <string name="expense_type_reg">Manutenção de Tipos de Despesa</string>
+    <string name="about">Sobre</string>
+    <string name="delete_record">Apagar Registro</string>
+    <string name="edit_record">Editar Registro</string>
+</resources>

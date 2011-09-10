@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Container"
+    android:layout_width="match_parent" 
+    android:layout_height="fill_parent" android:orientation="vertical"
+    android:background="@color/white" android:weightSum="1">
+    <LinearLayout android:baselineAligned="true" android:layout_width="match_parent" android:weightSum="1" android:orientation="vertical" android:layout_height="99dp">
+        <ImageView android:layout_width="fill_parent" android:layout_height="100dp" android:id="@+id/imageView1" android:src="@drawable/apptitle"></ImageView>    
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical" android:weightSum="1"  android:layout_height="match_parent" android:layout_marginTop="90dip">
+        <LinearLayout android:id="@+id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" >
+            <Button android:id="@+id/AdmAccessButton" android:layout_height="wrap_content" android:text="@string/expense_reg_access" android:layout_width="210dp" android:layout_gravity="center_horizontal"></Button>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/linearLayout2" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="35dip">
+            <Button android:id="@+id/RegExpenseAccessButton" android:layout_height="wrap_content" android:text="@string/administration_access" android:layout_width="210dp" android:layout_gravity="center_horizontal"></Button>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

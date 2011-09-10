@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="fill_parent"
+ android:layout_height="wrap_content"
+ android:orientation="vertical">
+ <LinearLayout
+     android:id="@+id/container"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content" android:orientation="horizontal" android:background="@color/darkgrey">
+     <TextView android:text="@string/reports" android:textSize="16dip" android:id="@+id/DescriptionText" android:layout_height="wrap_content" android:textColor="@color/realwhite" android:layout_width="210dp" android:layout_marginLeft="10dip" android:layout_marginTop="10dip" android:layout_marginBottom="10dip"></TextView>
+     <TextView
+      android:layout_height="wrap_content" android:id="@+id/DefaultValue" android:textColor="@color/lightgrey" android:layout_width="50dp" android:text="@string/about" android:layout_marginLeft="10dip" android:layout_marginTop="10dip" android:layout_marginBottom="10dip"/>    
+ </LinearLayout>
+</LinearLayout>

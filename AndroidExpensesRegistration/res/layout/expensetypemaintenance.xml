@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Container"
+    android:layout_width="match_parent" 
+    android:layout_height="fill_parent" android:orientation="vertical"
+    android:background="@color/white" android:weightSum="1">
+    <LinearLayout android:baselineAligned="true" android:layout_width="match_parent" android:weightSum="1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_marginLeft="25dip">
+        <TextView android:layout_width="wrap_content" android:layout_gravity="left" android:textAppearance="?android:attr/textAppearanceMedium" android:textStyle="bold" android:layout_marginTop="8dip" android:id="@+id/textView2" android:layout_height="wrap_content" android:textColor="@color/black" android:text="@string/expense_type_reg" android:textSize="16dip"></TextView>    
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical" android:weightSum="1"  android:layout_height="270dp" android:layout_marginLeft="10dip" android:layout_marginRight="10dip">
+        <GridView android:layout_width="match_parent" android:id="@+id/ExpenseTypesGridView" android:numColumns="1" android:layout_height="220dip"></GridView>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:weightSum="1" android:id="@+id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageButton android:id="@+id/backExpRegButton" 
+        	android:layout_height="wrap_content" 
+	        android:src="@drawable/back" 	        
+	        android:layout_width="wrap_content" 
+	        android:layout_gravity="center_horizontal"	        
+	        android:background="@color/white">
+        </ImageButton>
+    </LinearLayout>
+</LinearLayout>

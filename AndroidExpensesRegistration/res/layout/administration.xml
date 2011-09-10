@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Container"
+    android:layout_width="match_parent" 
+    android:layout_height="fill_parent" android:orientation="vertical"
+    android:background="@color/white" android:weightSum="1">
+    <LinearLayout android:baselineAligned="true" android:layout_width="match_parent" android:weightSum="1" android:orientation="vertical" android:layout_height="99dp">
+        <ImageView android:layout_width="fill_parent" android:layout_height="100dp" android:id="@+id/imageView1" android:src="@drawable/administration"></ImageView>    
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical" android:weightSum="1"  android:layout_marginLeft="40dip" android:layout_marginRight="40dip" android:layout_marginTop="10dip" android:layout_height="200dp">
+        <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/ReportsButton" android:text="@string/reports" android:layout_marginBottom="20dip"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/RegTypeMaintenanceButton" android:text="@string/expense_type_reg" android:layout_marginBottom="20dip"></Button>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:weightSum="1" android:id="@+id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageButton android:id="@+id/imageButton1" 
+	        android:layout_height="wrap_content" 
+	        android:src="@drawable/back" 	        
+	        android:layout_width="wrap_content" 
+	        android:layout_gravity="center_horizontal"	        
+	        android:background="@color/white">
+        </ImageButton>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#9e9e9e</color>
+    <color name="realwhite">#FFFFFF</color>
+    <color name="lightgrey">#e1e1e1</color>
+    <color name="black">#000000</color>
+    <color name="darkgrey">#2e2e2e</color>
+    <drawable name="apptitle">#FFFFFF</drawable>
+    <drawable name="administration">#FFFFFF</drawable>
+    <drawable name="expenseregtitle">#FFFFFF</drawable>
+    <drawable name="back">#000000</drawable>
+    <drawable name="backhighlight">#FFFFFF</drawable>
+    <drawable name="create">#FFFFFF</drawable>
+    <drawable name="edit">#FFFFFF</drawable>
+    <drawable name="delete">#FFFFFF</drawable>
+</resources>
