@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidexpensesregistration.domain.dto.DTO;
 import androidexpensesregistration.domain.model.IGenericRecord;
+import androidexpensesregistration.domain.types.QueryKeyValuePair;
 
 public abstract class Repository<T extends IGenericRecord> implements IRepository<T> {
 	
@@ -50,9 +51,13 @@ public abstract class Repository<T extends IGenericRecord> implements IRepositor
 		return values.size() > 0 ? values.get(0) : null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public ArrayList<T> findByProperty(String[] properties, String[] propertyValues) {
-		return null;
+	public ArrayList<T> findByProperty(QueryKeyValuePair queryKeyValuePair) {
+		Cursor cursor = sqliteDatabase.query(tableName, tableColumnsString, queryKeyValuePair.returnKeysPropertyString(), queryKeyValuePair.returnAttributesStringArray(), null, null, null);
+		ArrayList<T> values = dto.getCursorValues(cursor, this.context);
+		cursor.close();		
+		return values;
 	}
 
 	@Override

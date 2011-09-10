@@ -51,7 +51,7 @@ public class ExpenseType implements IGenericRecord{
 		return estimatedTimeInterval;
 	}
 
-	public void setEstimatedTimeInterval(String startTime, String endTime) throws ParseException, IllegalArgumentException {
+	public void setEstimatedTimeInterval(String startTime, String endTime) throws IllegalArgumentException {
 		this.estimatedTimeInterval = new TimeInterval(startTime, endTime);	
 	}
 	@Override

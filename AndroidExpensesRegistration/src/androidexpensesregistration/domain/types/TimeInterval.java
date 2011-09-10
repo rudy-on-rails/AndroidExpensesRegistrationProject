@@ -1,17 +1,17 @@
 package androidexpensesregistration.domain.types;
-import java.util.Date;
-import java.text.ParseException;
+
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 
 public class TimeInterval {		
-	private Date startDate;
-	private Date endDate;
+	private Time startDate;
+	private Time endDate;
 	private final static SimpleDateFormat sdf 
 	= new SimpleDateFormat("hh:mm:ss");
 	
-	public TimeInterval(String startTime, String endTime) throws ParseException, IllegalArgumentException{
-		startDate = sdf.parse(endTime);
-		endDate = sdf.parse(endTime);
+	public TimeInterval(String startTime, String endTime) throws IllegalArgumentException{
+		startDate = Time.valueOf(startTime);
+		endDate = Time.valueOf(endTime);
 		if (startDate.after(endDate))
 			throw new IllegalArgumentException("Start Time Can't be Greater Than End Time!");
 	}
