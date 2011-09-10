@@ -17,7 +17,7 @@ public abstract class Repository<T extends IGenericRecord> implements IRepositor
 	String tableColumnsString[];
 	@SuppressWarnings("rawtypes")
 	DTO dto;
-	private Context context;
+	protected Context context;
 	public Repository(Context context, String tableColumns[], SQLiteOpenHelper adapterInstance, String tableName, @SuppressWarnings("rawtypes") DTO dto) {		
 		sqliteDatabase = adapterInstance.getWritableDatabase();
 		this.context = context;

@@ -5,11 +5,13 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
 import android.util.Log;
 
 public class DateHelper {
 	public static final String DATE_FORMAT_NOW = "dd-MM-yyyy";
 	public static final String DATE_ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS";
+	public static final String JUST_TIME_STRING_FORMAT = "HH:mm:ss";
 	
 	public static String getNowDateToString() {
 	    Calendar cal = Calendar.getInstance();
@@ -51,6 +53,25 @@ public class DateHelper {
 	
 	public static Date now(){
 		return new Date();		
+	}
+	
+	public static String getNowTimeString(){
+		DateFormat justTimeFormat = new SimpleDateFormat(JUST_TIME_STRING_FORMAT);
+		return justTimeFormat.format(now());
+	}
+	
+	public static String getNowPlusHoursString(int hoursToAdd){
+		DateFormat justTimeFormat = new SimpleDateFormat(JUST_TIME_STRING_FORMAT);
+		Date dateObject = now();
+		dateObject.setHours(dateObject.getHours() + hoursToAdd);
+		return justTimeFormat.format(dateObject);
+	}
+	
+	public static String getNowMinusHoursString(int hoursToSubtract){
+		DateFormat justTimeFormat = new SimpleDateFormat(JUST_TIME_STRING_FORMAT);
+		Date dateObject = now();
+		dateObject.setHours(dateObject.getHours() - hoursToSubtract);
+		return justTimeFormat.format(dateObject);
 	}
 	
 	public static String getFormattedDataStringForDB(Date date){		

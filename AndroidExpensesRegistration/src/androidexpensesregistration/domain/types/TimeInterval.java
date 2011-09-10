@@ -22,6 +22,13 @@ public class TimeInterval {
 	public String getEndTimeString() {
 		return sdf.format(endDate);
 	}		
+	public boolean isInPeriodOf(String time){
+		Time gotTime = Time.valueOf(time);
+		if (gotTime.compareTo(startDate) >= 0 && gotTime.compareTo(endDate) <= 0)
+			return true;
+		return false;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

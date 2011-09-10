@@ -6,6 +6,7 @@ import android.test.AndroidTestCase;
 import androidexpensesregistration.domain.model.ExpenseType;
 import androidexpensesregistration.domain.repository.ExpenseTypeRepository;
 import androidexpensesregistration.domain.types.QueryKeyValuePair;
+import androidexpensesregistration.helpers.DateHelper;
 
 public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 	private ExpenseTypeRepository expenseTypeRepository;	
@@ -131,6 +132,23 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		for (ExpenseType expenseType : expenseTypes) {
 			assertTrue(expenseTypesGotArrayList.contains(expenseType));
 		}
+	}
+	
+	public void testGetSuggestedExpenseTypeForNowShouldReturnARecordCaseItExistsForCurrentPeriod(){				
+		String nowString = DateHelper.getNowTimeString();
+		String nowPlusSomeHoursString = DateHelper.getNowPlusHoursString(1);		
+		ExpenseType expectedExpenseType = createExpenseType("Despesa com Almoco", nowString, nowPlusSomeHoursString, (float)23.14);
+		expenseTypeRepository.save(expectedExpenseType);			
+		ExpenseType expenseType = expenseTypeRepository.getSuggestedExpenseTypeForNow();
+		assertNotNull(expenseType);
+		assertEquals(expenseType.getName(), expectedExpenseType.getName());
+		assertEquals(expenseType.getValue(), expectedExpenseType.getValue());
+		assertEquals(expenseType.getEstimatedTimeInterval().getStartTimeString(), expectedExpenseType.getEstimatedTimeInterval().getStartTimeString());		
+		assertEquals(expenseType.getEstimatedTimeInterval().getEndTimeString(), expectedExpenseType.getEstimatedTimeInterval().getEndTimeString());
+	}
+	
+	public void testGetSuggestedExpenseTypeForNowShouldReturnNullCaseNoRecordExistsForCurrentPeriod(){
+		assertNull(expenseTypeRepository.getSuggestedExpenseTypeForNow());
 	}
 }
 
