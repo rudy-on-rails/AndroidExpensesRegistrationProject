@@ -37,9 +37,16 @@ public class ExpenseTypeAdapter extends BaseAdapter {
 		    convertView = mInflater.inflate(R.layout.expensetypegridlayout, null);		
 		    TextView descriptionTextView = (TextView) convertView.findViewById(R.id.DescriptionText);
 		    TextView defaultValueTextView = (TextView) convertView.findViewById(R.id.DefaultValue);		    
+		    TextView timeintervalTextView = (TextView) convertView.findViewById(R.id.timeInterval);
 		    descriptionTextView.setText(allElementDetails.get(position).getName());
-		    defaultValueTextView.setText(allElementDetails.get(position).toString());
-		    convertView.setPadding(6, 6, 6, 6);
+		    defaultValueTextView.setText(String.valueOf(allElementDetails.get(position).getValue()));
+		    if (allElementDetails.get(position).getEstimatedTimeInterval() != null){		    	
+		    	timeintervalTextView.setText(allElementDetails.get(position).getEstimatedTimeInterval().toString());
+		    }
+		    else {
+				timeintervalTextView.setText("");
+			}
+		    convertView.setPadding(2, 2, 2, 2);
 		    return convertView;    
 		}	
 }

@@ -17,4 +17,8 @@
     <string name="about">Sobre</string>
     <string name="delete_record">Apagar Registro</string>
     <string name="edit_record">Editar Registro</string>
+    <string name="add_new">Adicionar Novo</string>
+    <string name="expense_type_edition">Edição de Tipo de Despesa</string>
+    <string name="start_time">Hora Inicial Aproximada:</string>
+    <string name="end_time">Hora Final Aproximada:</string>
 </resources>

@@ -13,4 +13,6 @@
     <drawable name="create">#FFFFFF</drawable>
     <drawable name="edit">#FFFFFF</drawable>
     <drawable name="delete">#FFFFFF</drawable>
+    <drawable name="add">#FFFFFF</drawable>
+    <drawable name="add_highlight">#FFFFFF</drawable>
 </resources>

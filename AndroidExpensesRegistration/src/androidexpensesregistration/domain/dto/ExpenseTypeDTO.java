@@ -24,8 +24,10 @@ public class ExpenseTypeDTO implements DTO<ExpenseType>{
 		ExpenseType expense = (ExpenseType)iGenericRecord;		
 		contentValues.put("value", expense.getValue());		
 		contentValues.put("description", expense.getName());
-		contentValues.put("start_time_aprox", expense.getEstimatedTimeInterval().getStartTimeString());
-		contentValues.put("end_time_aprox", expense.getEstimatedTimeInterval().getEndTimeString());
+		if (expense.getEstimatedTimeInterval() != null){
+			contentValues.put("start_time_aprox", expense.getEstimatedTimeInterval().getStartTimeString());
+			contentValues.put("end_time_aprox", expense.getEstimatedTimeInterval().getEndTimeString());
+		}		
 		return contentValues;
 	}
 
@@ -38,6 +40,8 @@ public class ExpenseTypeDTO implements DTO<ExpenseType>{
 			expenseType.setName(cursor.getString(COL_DESCRIPTION));
 			expenseType.setValue(cursor.getFloat(COL_VALUE));
 			try {
+				if (cursor.getString(COL_START_TIME_APROX) != null &&
+						cursor.getString(COL_END_TIME_APROX) != null)
 				expenseType.setEstimatedTimeInterval(cursor.getString(COL_START_TIME_APROX), cursor.getString(COL_END_TIME_APROX));
 			} catch (Exception e) {				
 				Log.v("Cannot parse DateTime Object", e.getMessage());

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Container"
+    android:layout_width="match_parent" 
+    android:layout_height="fill_parent" android:orientation="vertical"
+    android:background="@color/white" android:weightSum="1">
+    <LinearLayout android:baselineAligned="true" android:layout_width="match_parent" android:weightSum="1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_marginLeft="20dip">
+        <TextView android:layout_width="wrap_content" android:layout_gravity="left" android:textAppearance="?android:attr/textAppearanceMedium" android:textStyle="bold" android:layout_marginTop="8dip" android:id="@+id/textView2" android:layout_height="wrap_content" android:textColor="@color/black" android:textSize="16dip" android:text="@string/expense_type_edition"></TextView>    
+    </LinearLayout>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical" android:weightSum="1"  android:layout_marginLeft="10dip" android:layout_marginRight="10dip" android:layout_height="290dp">
+        <LinearLayout android:layout_marginLeft="10dip" android:layout_height="280dp" android:layout_width="match_parent" android:id="@+id/LinearLayout02" android:weightSum="1" android:orientation="vertical" android:layout_marginRight="10dip">
+            <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/LinearLayout04" android:orientation="vertical" android:layout_marginTop="10dip" android:layout_marginBottom="5dip">
+                <TextView android:textColor="@color/black" android:id="@+id/textView1" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="@string/expense_description"></TextView>
+                <EditText android:layout_height="wrap_content" android:inputType="textMultiLine" android:layout_width="match_parent" android:id="@+id/expenseTypeDescription">
+                    <requestFocus></requestFocus>
+                </EditText>
+            </LinearLayout>
+            <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"  android:id="@+id/LinearLayout1" android:layout_marginTop="10dip" android:layout_marginBottom="5dip">
+                <TextView android:textColor="@color/black" android:id="@+id/TextView04" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="@string/value"></TextView>
+                <EditText android:id="@+id/ValueText" android:layout_height="wrap_content" android:layout_weight="1" android:inputType="numberDecimal" android:layout_width="wrap_content"></EditText>
+            </LinearLayout>
+            <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/LinearLayout03" android:layout_marginTop="10dip" android:layout_marginBottom="5dip">
+                <TextView android:textColor="@color/black" android:id="@+id/TextView01" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="@string/start_time"></TextView>
+                <EditText android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="wrap_content" android:inputType="time" android:id="@+id/startTimeText"></EditText>
+            </LinearLayout>
+            <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/LinearLayout05" android:layout_marginTop="10dip" android:layout_marginBottom="5dip">
+                <TextView android:textColor="@color/black" android:id="@+id/TextView02" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="@string/end_time"></TextView>
+                <EditText android:layout_height="wrap_content" android:layout_weight="1" android:inputType="time" android:layout_width="wrap_content" android:id="@+id/endTimeText"></EditText>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:weightSum="1" android:id="@+id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_gravity="center_horizontal" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/horizontalLayout">
+            <ImageButton android:id="@+id/BackButton" android:layout_height="wrap_content" android:layout_width="wrap_content" android:background="@color/white" android:layout_marginRight="90dip" android:src="@drawable/back"></ImageButton>
+            <ImageButton android:id="@+id/ConfirmButton" android:layout_height="wrap_content" android:layout_width="wrap_content" android:background="@color/white" android:src="@drawable/confirm"></ImageButton>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

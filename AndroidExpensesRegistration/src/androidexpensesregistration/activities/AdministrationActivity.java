@@ -1,22 +1,13 @@
 package androidexpensesregistration.activities;
 
-import java.math.BigDecimal;
-
 import seidingersoftware.androidexpensesregistration.R;
-import seidingersoftware.androidexpensesregistration.R.drawable;
-import seidingersoftware.androidexpensesregistration.R.id;
-import seidingersoftware.androidexpensesregistration.R.layout;
 import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import androidexpensesregistration.domain.infra.ExpensesDataBaseAdapter;
-import androidexpensesregistration.domain.model.ExpenseType;
-import androidexpensesregistration.domain.repository.ExpenseTypeRepository;
 
 public class AdministrationActivity extends Activity {
 	@Override
@@ -25,7 +16,7 @@ public class AdministrationActivity extends Activity {
         setContentView(R.layout.administration);
         final ImageView view = (ImageView) findViewById(R.id.imageView1);        
         final ImageButton imgBackBtn = (ImageButton) findViewById(R.id.imageButton1);
-        Button btnReportsButton = (Button) findViewById(R.id.ReportsButton);
+        //Button btnReportsButton = (Button) findViewById(R.id.ReportsButton);
         Button btnRegType = (Button) findViewById(R.id.RegTypeMaintenanceButton);
         imgBackBtn.setOnClickListener(new View.OnClickListener() {
 			

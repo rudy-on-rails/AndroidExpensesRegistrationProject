@@ -8,8 +8,16 @@
     <LinearLayout android:baselineAligned="true" android:layout_width="match_parent" android:weightSum="1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_marginLeft="25dip">
         <TextView android:layout_width="wrap_content" android:layout_gravity="left" android:textAppearance="?android:attr/textAppearanceMedium" android:textStyle="bold" android:layout_marginTop="8dip" android:id="@+id/textView2" android:layout_height="wrap_content" android:textColor="@color/black" android:text="@string/expense_type_reg" android:textSize="16dip"></TextView>    
     </LinearLayout>
-    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical" android:weightSum="1"  android:layout_height="270dp" android:layout_marginLeft="10dip" android:layout_marginRight="10dip">
-        <GridView android:layout_width="match_parent" android:id="@+id/ExpenseTypesGridView" android:numColumns="1" android:layout_height="220dip"></GridView>
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical" android:weightSum="1"  android:layout_marginLeft="10dip" android:layout_marginRight="10dip" android:layout_height="220dp">
+        <GridView android:layout_width="match_parent" android:id="@+id/ExpenseTypesGridView" android:numColumns="1" android:layout_height="200dip"></GridView>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:layout_marginLeft="10dip" android:layout_marginRight="10dip">
+        <LinearLayout android:layout_width="wrap_content" android:orientation="vertical" android:id="@+id/LinearLayout1" android:layout_height="65dp">
+            <ImageButton android:layout_width="wrap_content" android:src="@drawable/add" android:id="@+id/addNewBtn" android:background="@color/white" android:layout_gravity="left" android:layout_height="wrap_content" android:layout_marginLeft="25dip" android:layout_marginTop="5dip"></ImageButton>
+        </LinearLayout>
+        <LinearLayout android:layout_width="wrap_content" android:orientation="vertical" android:id="@+id/LinearLayout02" android:layout_height="65dp">
+            <TextView android:id="@+id/textView1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="@string/add_new" android:layout_marginLeft="4dip" android:layout_marginTop="22dip"></TextView>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout android:orientation="vertical" android:weightSum="1" android:id="@+id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content">
         <ImageButton android:id="@+id/backExpRegButton" 

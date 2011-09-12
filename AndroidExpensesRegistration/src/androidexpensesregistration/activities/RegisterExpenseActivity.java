@@ -3,20 +3,12 @@ package androidexpensesregistration.activities;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
-
 import seidingersoftware.androidexpensesregistration.R;
-import seidingersoftware.androidexpensesregistration.R.id;
-import seidingersoftware.androidexpensesregistration.R.layout;
-import android.R.integer;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,10 +18,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import androidexpensesregistration.domain.infra.ExpensesDataBaseAdapter;
 import androidexpensesregistration.domain.model.Expense;
 import androidexpensesregistration.domain.model.ExpenseType;
 import androidexpensesregistration.domain.repository.ExpenseTypeRepository;
@@ -73,8 +63,8 @@ public class RegisterExpenseActivity extends Activity {
         Calendar c = Calendar.getInstance();
         fillExpenseTypeField();
         mDay = c.get(Calendar.DAY_OF_MONTH);
-        mMonth = c.get(c.MONTH);
-        mYear = c.get(c.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mYear = c.get(Calendar.YEAR);
         updateDisplay();
         pickDateButton.setOnClickListener(new View.OnClickListener() {			
 			@Override

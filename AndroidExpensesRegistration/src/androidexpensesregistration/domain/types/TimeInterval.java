@@ -50,4 +50,11 @@ public class TimeInterval {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {		
+		return getStartTimeString() + " - " + getEndTimeString();
+	}
+	
+	
 }

@@ -1,6 +1,5 @@
 package androidexpensesregistration.domain.repository;
 
-import java.sql.Time;
 import java.util.ArrayList;
 
 import android.content.Context;

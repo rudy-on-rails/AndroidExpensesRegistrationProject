@@ -3,12 +3,11 @@
  android:layout_width="fill_parent"
  android:layout_height="wrap_content"
  android:orientation="vertical">
- <LinearLayout
-     android:id="@+id/container"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content" android:orientation="horizontal" android:background="@color/darkgrey">
-     <TextView android:text="@string/reports" android:textSize="16dip" android:id="@+id/DescriptionText" android:layout_height="wrap_content" android:textColor="@color/realwhite" android:layout_width="210dp" android:layout_marginLeft="10dip" android:layout_marginTop="10dip" android:layout_marginBottom="10dip"></TextView>
-     <TextView
-      android:layout_height="wrap_content" android:id="@+id/DefaultValue" android:textColor="@color/lightgrey" android:layout_width="50dp" android:text="@string/about" android:layout_marginLeft="10dip" android:layout_marginTop="10dip" android:layout_marginBottom="10dip"/>    
- </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/linearLayout1" android:orientation="vertical" android:background="@color/darkgrey">
+        <LinearLayout android:background="@color/darkgrey" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/container" android:orientation="horizontal" android:layout_marginBottom="5dip">
+            <TextView android:textColor="@color/realwhite" android:id="@+id/DescriptionText" android:layout_height="wrap_content" android:textSize="16dip" android:layout_width="180dp" android:text="@string/reports" android:layout_marginLeft="10dip" android:layout_marginTop="10dip"></TextView>
+            <TextView android:textColor="@color/lightgrey" android:id="@+id/DefaultValue" android:layout_height="wrap_content" android:layout_width="50dp" android:text="@string/about" android:layout_marginLeft="10dip" android:layout_marginTop="10dip"></TextView>
+        </LinearLayout>
+        <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_width="wrap_content" android:text="TextView" android:layout_marginLeft="10dip" android:layout_marginBottom="5dip" android:id="@+id/timeInterval"></TextView>
+    </LinearLayout>
 </LinearLayout>
