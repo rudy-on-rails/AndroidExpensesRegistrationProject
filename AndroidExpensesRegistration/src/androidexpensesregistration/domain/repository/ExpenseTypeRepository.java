@@ -1,5 +1,6 @@
 package androidexpensesregistration.domain.repository;
 
+import java.sql.Time;
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -15,12 +16,12 @@ public class ExpenseTypeRepository extends Repository<ExpenseType> {
 		super(context,COLUMNS_STRING, new ExpensesDataBaseAdapter(context), "expense_types", new ExpenseTypeDTO());		
 	}
 		
-	public ExpenseType getSuggestedExpenseTypeForNow(){		
-		String nowTimeString = DateHelper.getNowTimeString();		
+	public ExpenseType getSuggestedExpenseTypeForNow() throws Exception{		
+		String nowTimeString = DateHelper.getNowTimeString();
 		ArrayList<ExpenseType> values = this.all();
-		for (ExpenseType expenseType : values) {
+		for (ExpenseType expenseType : values) {			
 			if (expenseType.getEstimatedTimeInterval() != null && 
-					expenseType.getEstimatedTimeInterval().isInPeriodOf(nowTimeString))
+					expenseType.getEstimatedTimeInterval().isInPeriodOf(nowTimeString) == true)
 				return expenseType;
 		}		
 		return null;		

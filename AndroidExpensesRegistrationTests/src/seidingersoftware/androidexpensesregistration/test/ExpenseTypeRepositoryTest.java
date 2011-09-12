@@ -1,5 +1,6 @@
 package seidingersoftware.androidexpensesregistration.test;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import android.test.AndroidTestCase;
@@ -24,7 +25,7 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		super.tearDown();
 	}
 	
-	protected ExpenseType createExpenseType() throws IllegalArgumentException{
+	protected ExpenseType createExpenseType() throws IllegalArgumentException, ParseException{
 		ExpenseType expenseType = new ExpenseType();
 		expenseType.setName("Olá Mundo");
 		expenseType.setValue((float) 123.58);
@@ -32,7 +33,7 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		return expenseType;
 	}
 	
-	protected ExpenseType createExpenseType(String name, String startTime, String endTime, float value) throws IllegalArgumentException{
+	protected ExpenseType createExpenseType(String name, String startTime, String endTime, float value) throws IllegalArgumentException, ParseException{
 		ExpenseType expenseType = new ExpenseType();
 		expenseType.setName(name);
 		expenseType.setValue(value);
@@ -40,7 +41,7 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		return expenseType;
 	}
 
-	public void testSaveMustBeSaveSimpleItem() throws IllegalArgumentException {
+	public void testSaveMustBeSaveSimpleItem() throws IllegalArgumentException, ParseException {
 		ExpenseType expectedExpenseType = createExpenseType();
 		expenseTypeRepository.save(expectedExpenseType);		
 		assertEquals(1, expenseTypeRepository.count());
@@ -51,13 +52,13 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		assertEquals(gotExpenseType.getEstimatedTimeInterval().getEndTimeString(), expectedExpenseType.getEstimatedTimeInterval().getEndTimeString());
 	}
 	
-	public void testSaveAfterSaveIdObjectIdMustBeSet() throws IllegalArgumentException{
+	public void testSaveAfterSaveIdObjectIdMustBeSet() throws IllegalArgumentException, ParseException{
 		ExpenseType expectedExpenseType = createExpenseType();
 		expenseTypeRepository.save(expectedExpenseType);
 		assertEquals(expectedExpenseType.getId(),expenseTypeRepository.all().get(0).getId());
 	}
 
-	public void testDeleteDeletingSimpleItem() throws IllegalArgumentException {
+	public void testDeleteDeletingSimpleItem() throws IllegalArgumentException, ParseException {
 		ExpenseType expectedExpenseType = createExpenseType();
 		expenseTypeRepository.save(expectedExpenseType);		
 		expenseTypeRepository.delete(expectedExpenseType);
@@ -68,7 +69,7 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		assertEquals(0, expenseTypeRepository.count());
 	}
 	
-	public void testCount5ObjectsInserted() throws IllegalArgumentException {
+	public void testCount5ObjectsInserted() throws IllegalArgumentException, ParseException {
 		ArrayList<ExpenseType> expenseTypes = new ArrayList<ExpenseType>();
 		for (int i = 0; i < 5; i++) {
 			expenseTypes.add(createExpenseType());			
@@ -83,14 +84,14 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		assertNull(expenseTypeRepository.findById(12321));
 	}
 	
-	public void testFindByIdMustReturnRecordCaseItExists() throws IllegalArgumentException {
+	public void testFindByIdMustReturnRecordCaseItExists() throws IllegalArgumentException, ParseException {
 		ExpenseType expectedExpenseType = createExpenseType();
 		expenseTypeRepository.save(expectedExpenseType);		
 		ExpenseType gotExpenseType = expenseTypeRepository.findById(expectedExpenseType.getId());
 		assertTrue(expectedExpenseType.equals(gotExpenseType));		
 	}
 
-	public void testFindByPropertySimpleReturn() throws IllegalArgumentException {
+	public void testFindByPropertySimpleReturn() throws IllegalArgumentException, ParseException {
 		ExpenseType expectedExpenseType = createExpenseType();
 		expenseTypeRepository.save(expectedExpenseType);
 		ExpenseType expectedExpenseType2 = createExpenseType("TestCase", "01:00:00", "02:00:00", (float)3.14);
@@ -100,7 +101,7 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		assertEquals(expenseTypeRepository.findByProperty(queryKeyValuePair).get(0), expectedExpenseType2);		
 	}
 	
-	public void testFindByPropertyTwoRecordsReturn() throws IllegalArgumentException {
+	public void testFindByPropertyTwoRecordsReturn() throws IllegalArgumentException, ParseException {
 		ExpenseType expectedExpenseType = createExpenseType();
 		expenseTypeRepository.save(expectedExpenseType);
 		ExpenseType expectedExpenseType2 = createExpenseType("TestCase", "11:00:00", "12:00:00", (float)3.14);
@@ -119,7 +120,7 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		assertEquals(0, expenseTypeRepository.all().size());
 	}
 	
-	public void testAllShouldRetrieveAllRecordsFilledTable() {
+	public void testAllShouldRetrieveAllRecordsFilledTable() throws IllegalArgumentException, ParseException {
 		ArrayList<ExpenseType> expenseTypes = new ArrayList<ExpenseType>();
 		for (int i = 0; i < 10; i++) {
 			expenseTypes.add(createExpenseType());			
@@ -134,11 +135,26 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		}
 	}
 	
-	public void testGetSuggestedExpenseTypeForNowShouldReturnARecordCaseItExistsForCurrentPeriod(){				
+	public void testGetSuggestedExpenseTypeForNowShouldReturnARecordCaseItExistsForCurrentPeriod() throws Exception{				
+		String nowString = DateHelper.getNowTimeString();
+		String nowPlusSomeHoursString = DateHelper.getNowPlusHoursString(1);	
+		ExpenseType expectedExpenseType = createExpenseType("Despesa com Almoco", nowString, nowPlusSomeHoursString, (float)23.14);		
+		expenseTypeRepository.save(expectedExpenseType);			
+		ExpenseType expenseType = expenseTypeRepository.getSuggestedExpenseTypeForNow();		
+		assertNotNull(expenseType);
+		assertEquals(expenseType.getName(), expectedExpenseType.getName());
+		assertEquals(expenseType.getValue(), expectedExpenseType.getValue());
+		assertEquals(expenseType.getEstimatedTimeInterval().getStartTimeString(), expectedExpenseType.getEstimatedTimeInterval().getStartTimeString());		
+		assertEquals(expenseType.getEstimatedTimeInterval().getEndTimeString(), expectedExpenseType.getEstimatedTimeInterval().getEndTimeString());
+	}
+	
+	public void testGetSuggestedExpenseTypeForNowShouldReturnFirstRecordCaseExistsMoreThanOne() throws Exception{
 		String nowString = DateHelper.getNowTimeString();
 		String nowPlusSomeHoursString = DateHelper.getNowPlusHoursString(1);		
 		ExpenseType expectedExpenseType = createExpenseType("Despesa com Almoco", nowString, nowPlusSomeHoursString, (float)23.14);
-		expenseTypeRepository.save(expectedExpenseType);			
+		expenseTypeRepository.save(expectedExpenseType);
+		ExpenseType notExpectedExpenseType = createExpenseType("Despesa com Almoco No Porcão", nowString, nowPlusSomeHoursString, (float)90.00);
+		expenseTypeRepository.save(notExpectedExpenseType);
 		ExpenseType expenseType = expenseTypeRepository.getSuggestedExpenseTypeForNow();
 		assertNotNull(expenseType);
 		assertEquals(expenseType.getName(), expectedExpenseType.getName());
@@ -147,7 +163,7 @@ public class ExpenseTypeRepositoryTest extends AndroidTestCase {
 		assertEquals(expenseType.getEstimatedTimeInterval().getEndTimeString(), expectedExpenseType.getEstimatedTimeInterval().getEndTimeString());
 	}
 	
-	public void testGetSuggestedExpenseTypeForNowShouldReturnNullCaseNoRecordExistsForCurrentPeriod(){
+	public void testGetSuggestedExpenseTypeForNowShouldReturnNullCaseNoRecordExistsForCurrentPeriod() throws Exception{
 		assertNull(expenseTypeRepository.getSuggestedExpenseTypeForNow());
 	}
 }

@@ -12,8 +12,8 @@ public class ExpensesDataBaseAdapter extends SQLiteOpenHelper {
 	"create table expense_types (id integer primary key autoincrement, " +								
 	"description text, " +
 	"value numeric(5,2) not null, " +
-	"start_time_aprox time, " +
-	"end_time_aprox time);";
+	"start_time_aprox VARCHAR(8), " +
+	"end_time_aprox VARCHAR(8));";
 	private static final String EXPENSES_TABLE_SQL = 
 			"create table expenses (id integer primary key autoincrement, " +
 				"expense_type_id integer, " +

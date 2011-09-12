@@ -1,9 +1,12 @@
 package seidingersoftware.androidexpensesregistration.simpletests;
 
+import java.text.ParseException;
+
 import androidexpensesregistration.domain.types.TimeInterval;
+import androidexpensesregistration.helpers.DateHelper;
 import junit.framework.TestCase;
 
-public class TimeIntervalTest extends TestCase {
+public class TimeIntervalTest extends TestCase {	
 	private TimeInterval timeInterval;
 		
 	@Override
@@ -31,10 +34,15 @@ public class TimeIntervalTest extends TestCase {
 		assertEquals("02:00:00", timeInterval.getEndTimeString());
 	}
 
-	public void testIsInPeriodOfReturnTrue() {
-		assertTrue(timeInterval.isInPeriodOf("01:30:00"));
+	public void testIsInPeriodOfReturnTrue() throws ParseException {
+		assertTrue(timeInterval.isInPeriodOf("01:00:00"));		
+		assertTrue(timeInterval.isInPeriodOf("01:59:59"));
+		assertTrue(timeInterval.isInPeriodOf("02:00:00"));
+		String nowString = DateHelper.getNowTimeString();
+		timeInterval = new TimeInterval(nowString, nowString);
+		assertTrue(timeInterval.isInPeriodOf(DateHelper.getNowTimeString()));
 	}
-	public void testIsInPeriodOfReturnFalse() {
+	public void testIsInPeriodOfReturnFalse() throws ParseException {
 		assertFalse(timeInterval.isInPeriodOf("02:00:01"));
 	}
 }

@@ -1,6 +1,5 @@
 package androidexpensesregistration.domain.model;
 
-import java.text.ParseException;
 
 import android.content.ContentValues;
 import androidexpensesregistration.domain.dto.ExpenseTypeDTO;

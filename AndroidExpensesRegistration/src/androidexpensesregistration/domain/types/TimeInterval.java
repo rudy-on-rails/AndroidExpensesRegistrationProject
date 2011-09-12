@@ -7,7 +7,7 @@ public class TimeInterval {
 	private Time startDate;
 	private Time endDate;
 	private final static SimpleDateFormat sdf 
-	= new SimpleDateFormat("hh:mm:ss");
+	= new SimpleDateFormat("HH:mm:ss");
 	
 	public TimeInterval(String startTime, String endTime) throws IllegalArgumentException{
 		startDate = Time.valueOf(startTime);
