@@ -16,13 +16,13 @@ public abstract class Repository<T extends IGenericRecord> implements IRepositor
 	String tableName;
 	String tableColumnsString[];
 	@SuppressWarnings("rawtypes")
-	DataMapper dto;
+	DataMapper datamapper;
 	protected Context context;
-	public Repository(Context context, String tableColumns[], SQLiteOpenHelper adapterInstance, String tableName, @SuppressWarnings("rawtypes") DataMapper dto) {		
+	public Repository(Context context, String tableColumns[], SQLiteOpenHelper adapterInstance, String tableName, @SuppressWarnings("rawtypes") DataMapper datamapper) {		
 		sqliteDatabase = adapterInstance.getWritableDatabase();
 		this.context = context;
 		this.tableName = tableName;		
-		this.dto = dto;
+		this.datamapper = datamapper;
 		this.tableColumnsString = tableColumns;
 	}
 	
@@ -46,7 +46,7 @@ public abstract class Repository<T extends IGenericRecord> implements IRepositor
 	@Override
 	public T findById(int id) {
 		Cursor cursor = sqliteDatabase.query(tableName, tableColumnsString, "id=?", new String []{String.valueOf(id)}, null, null, null);
-		ArrayList<T> values = dto.getCursorValues(cursor, this.context);
+		ArrayList<T> values = datamapper.getCursorValues(cursor, this.context);
 		cursor.close();		
 		return values.size() > 0 ? values.get(0) : null;
 	}
@@ -55,7 +55,7 @@ public abstract class Repository<T extends IGenericRecord> implements IRepositor
 	@Override
 	public ArrayList<T> findByProperty(QueryKeyValuePair queryKeyValuePair) {
 		Cursor cursor = sqliteDatabase.query(tableName, tableColumnsString, queryKeyValuePair.returnKeysPropertyString(), queryKeyValuePair.returnAttributesStringArray(), null, null, null);
-		ArrayList<T> values = dto.getCursorValues(cursor, this.context);
+		ArrayList<T> values = datamapper.getCursorValues(cursor, this.context);
 		cursor.close();		
 		return values;
 	}
@@ -64,7 +64,7 @@ public abstract class Repository<T extends IGenericRecord> implements IRepositor
 	public ArrayList<T> all() {
 		Cursor cursor = sqliteDatabase.query(tableName, tableColumnsString, null, null, null, null, null);
 		@SuppressWarnings("unchecked")
-		ArrayList<T> values = dto.getCursorValues(cursor, this.context);
+		ArrayList<T> values = datamapper.getCursorValues(cursor, this.context);
 		cursor.close();		
 		return values;
 	}
