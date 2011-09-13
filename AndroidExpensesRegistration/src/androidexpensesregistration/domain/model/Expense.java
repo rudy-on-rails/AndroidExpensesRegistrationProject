@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import android.content.ContentValues;
-import androidexpensesregistration.domain.dto.ExpenseDTO;
+import androidexpensesregistration.domain.datamappers.ExpenseDataMapper;
 
 public class Expense implements IGenericRecord {	
 	
@@ -57,7 +57,7 @@ public class Expense implements IGenericRecord {
 	}
 	@Override
 	public ContentValues GetContentValues() {
-		return new ExpenseDTO().getContentValues(this);
+		return new ExpenseDataMapper().getContentValues(this);
 	}
 	public int getQuantity() {
 		return quantity;

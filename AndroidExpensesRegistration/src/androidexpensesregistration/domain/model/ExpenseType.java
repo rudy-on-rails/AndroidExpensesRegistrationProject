@@ -2,7 +2,7 @@ package androidexpensesregistration.domain.model;
 
 
 import android.content.ContentValues;
-import androidexpensesregistration.domain.dto.ExpenseTypeDTO;
+import androidexpensesregistration.domain.datamappers.ExpenseTypeDataMapper;
 import androidexpensesregistration.domain.types.TimeInterval;
 
 public class ExpenseType implements IGenericRecord{
@@ -30,7 +30,7 @@ public class ExpenseType implements IGenericRecord{
 
 	@Override
 	public ContentValues GetContentValues() {
-		return new ExpenseTypeDTO().getContentValues(this);
+		return new ExpenseTypeDataMapper().getContentValues(this);
 	}
 
 	public float getValue() {

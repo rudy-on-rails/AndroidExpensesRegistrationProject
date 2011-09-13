@@ -1,4 +1,4 @@
-package androidexpensesregistration.domain.dto;
+package androidexpensesregistration.domain.datamappers;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import androidexpensesregistration.domain.model.IGenericRecord;
 import androidexpensesregistration.domain.repository.ExpenseTypeRepository;
 import androidexpensesregistration.helpers.DateHelper;
 
-public class ExpenseDTO implements DTO<Expense>{
+public class ExpenseDataMapper implements DataMapper<Expense>{
 	private final int COL_ID = 0;
 	private final int COL_EXPENSE_TYPE_ID = 1;
 	private final int COL_VALUE = 2;

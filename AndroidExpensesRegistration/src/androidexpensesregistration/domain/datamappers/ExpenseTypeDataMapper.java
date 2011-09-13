@@ -1,4 +1,4 @@
-package androidexpensesregistration.domain.dto;
+package androidexpensesregistration.domain.datamappers;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import android.util.Log;
 import androidexpensesregistration.domain.model.ExpenseType;
 import androidexpensesregistration.domain.model.IGenericRecord;
 
-public class ExpenseTypeDTO implements DTO<ExpenseType>{
+public class ExpenseTypeDataMapper implements DataMapper<ExpenseType>{
 	private static final int COL_ID = 0; 
 	private static final int COL_DESCRIPTION = 1;
 	private static final int COL_VALUE = 2;

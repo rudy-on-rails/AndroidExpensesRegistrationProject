@@ -6,7 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import androidexpensesregistration.domain.dto.DTO;
+import androidexpensesregistration.domain.datamappers.DataMapper;
 import androidexpensesregistration.domain.model.IGenericRecord;
 import androidexpensesregistration.domain.types.QueryKeyValuePair;
 
@@ -16,9 +16,9 @@ public abstract class Repository<T extends IGenericRecord> implements IRepositor
 	String tableName;
 	String tableColumnsString[];
 	@SuppressWarnings("rawtypes")
-	DTO dto;
+	DataMapper dto;
 	protected Context context;
-	public Repository(Context context, String tableColumns[], SQLiteOpenHelper adapterInstance, String tableName, @SuppressWarnings("rawtypes") DTO dto) {		
+	public Repository(Context context, String tableColumns[], SQLiteOpenHelper adapterInstance, String tableName, @SuppressWarnings("rawtypes") DataMapper dto) {		
 		sqliteDatabase = adapterInstance.getWritableDatabase();
 		this.context = context;
 		this.tableName = tableName;		
