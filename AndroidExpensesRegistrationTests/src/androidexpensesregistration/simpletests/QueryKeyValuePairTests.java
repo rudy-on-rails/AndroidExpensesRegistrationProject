@@ -1,4 +1,4 @@
-package seidingersoftware.androidexpensesregistration.simpletests;
+package androidexpensesregistration.simpletests;
 
 import androidexpensesregistration.domain.types.QueryKeyValuePair;
 import junit.framework.TestCase;

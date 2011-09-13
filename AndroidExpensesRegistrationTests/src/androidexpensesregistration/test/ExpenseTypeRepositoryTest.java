@@ -1,4 +1,4 @@
-package seidingersoftware.androidexpensesregistration.test;
+package androidexpensesregistration.test;
 
 import java.text.ParseException;
 import java.util.ArrayList;
