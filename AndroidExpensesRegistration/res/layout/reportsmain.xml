@@ -15,7 +15,7 @@
                     <TextView android:layout_width="wrap_content" android:text="@string/total_expenses" android:id="@+id/TextView01" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:textStyle="bold" android:typeface="monospace" android:textColor="@color/black" android:textSize="13dip"></TextView>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:id="@+id/LinearLayout02" android:layout_height="match_parent" android:layout_marginLeft="5dip">
-                    <TextView android:layout_width="wrap_content" android:text="TextView" android:id="@+id/TextView02" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:typeface="monospace" android:textSize="13dip"></TextView>
+                    <TextView android:layout_width="wrap_content" android:text="TextView" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:typeface="monospace" android:textSize="13dip" android:id="@+id/totalExpensesValueText"></TextView>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout android:layout_width="match_parent" android:orientation="horizontal" android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:layout_marginTop="10dip">

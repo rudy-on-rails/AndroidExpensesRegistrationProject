@@ -42,8 +42,12 @@ public class ExpenseDataMapper implements DataMapper<Expense>{
 			expense.setDescription(cursor.getString(COL_DESCRIPTION));
 			expense.setExpenseValue(BigDecimal.valueOf(cursor.getFloat(COL_VALUE)));
 			expense.setQuantity(cursor.getInt(COL_QUANTITY));
-			if (cursor.getInt(COL_EXPENSE_TYPE_ID) != 0)
-				expense.setExpenseType(new ExpenseTypeRepository(context).findById(cursor.getInt(COL_EXPENSE_TYPE_ID)));
+			try {
+				if (cursor.getInt(COL_EXPENSE_TYPE_ID) != 0)
+					expense.setExpenseType(new ExpenseTypeRepository(context).findById(cursor.getInt(COL_EXPENSE_TYPE_ID)));
+			} catch (Exception e) {
+				// TODO: handle exception
+			}			
 			expense.setDateExpenseWasTaken(DateHelper.parseDateInputStringToDate(cursor.getString(COL_EXPENSE_DATE)));			
 			expensesArrayList.add(expense);
 		}

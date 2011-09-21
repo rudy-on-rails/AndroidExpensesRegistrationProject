@@ -38,6 +38,9 @@ public class Expense implements IGenericRecord {
 		DateExpenseWasTaken = dateExpenseWasTaken;
 	}
 	
+	public float getTotalExpenseValue(){
+		return this.expenseValue == null ? 0 : this.quantity * this.expenseValue.floatValue();
+	}
 	
 	public ExpenseType getExpenseType() {
 		return expenseType;

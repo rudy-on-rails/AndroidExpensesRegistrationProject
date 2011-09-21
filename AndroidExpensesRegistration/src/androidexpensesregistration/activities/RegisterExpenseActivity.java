@@ -109,7 +109,7 @@ public class RegisterExpenseActivity extends Activity {
 					expense.setDateExpenseWasTaken(DateHelper.parseScreenDateStringToDate(dateExpenseTextView.getText().toString()));
 					expense.setDescription(descriptionField.getText().toString());
 					expense.setQuantity(qty);
-					expense.setExpenseValue(BigDecimal.valueOf(value * qty));
+					expense.setExpenseValue(BigDecimal.valueOf(value));
 					expenseTypeSpinner = (Spinner) findViewById(R.id.typeExpenseSpinner);
 					if (expenseTypeSpinner.getSelectedItem() != null) {
 						ExpenseType expenseType = (ExpenseType) expenseTypeSpinner.getSelectedItem();
