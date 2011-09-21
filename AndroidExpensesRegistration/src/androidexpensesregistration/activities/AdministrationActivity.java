@@ -16,7 +16,7 @@ public class AdministrationActivity extends Activity {
         setContentView(R.layout.administration);
         final ImageView view = (ImageView) findViewById(R.id.imageView1);        
         final ImageButton imgBackBtn = (ImageButton) findViewById(R.id.imageButton1);
-        //Button btnReportsButton = (Button) findViewById(R.id.ReportsButton);
+        Button btnReportsButton = (Button) findViewById(R.id.ReportsButton);
         Button btnRegType = (Button) findViewById(R.id.RegTypeMaintenanceButton);
         imgBackBtn.setOnClickListener(new View.OnClickListener() {
 			
@@ -32,6 +32,13 @@ public class AdministrationActivity extends Activity {
 			@Override
 			public void onClick(View v) {																							
 				Intent myIntent = new Intent(view.getContext(), ExpenseTypeMaintenanceActivity.class);
+	            startActivityForResult(myIntent, 0);
+			}
+		});
+        btnReportsButton.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				Intent myIntent = new Intent(view.getContext(), ReportsMainActivity.class);
 	            startActivityForResult(myIntent, 0);
 			}
 		});

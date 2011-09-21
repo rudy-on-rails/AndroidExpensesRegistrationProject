@@ -18,5 +18,6 @@
 		<activity android:name="androidexpensesregistration.activities.RegisterExpenseActivity" android:screenOrientation="portrait"></activity>
 		<activity android:name="androidexpensesregistration.activities.ExpenseTypeMaintenanceActivity" android:screenOrientation="portrait"></activity>		
 		<activity android:name="androidexpensesregistration.activities.ExpenseTypeEditionActivity" android:screenOrientation="portrait"></activity>
+		<activity android:name="androidexpensesregistration.activities.ReportsMainActivity" android:screenOrientation="portrait"></activity>
     </application>
 </manifest>

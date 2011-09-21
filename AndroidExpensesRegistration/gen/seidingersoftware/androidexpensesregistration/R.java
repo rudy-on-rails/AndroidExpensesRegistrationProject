@@ -57,12 +57,13 @@ public final class R {
         public static final int TextView04=0x7f070016;
         public static final int ValueText=0x7f070017;
         public static final int addNewBtn=0x7f070025;
+        public static final int backButton=0x7f07002c;
         public static final int backExpRegButton=0x7f070026;
         public static final int changeDateButton=0x7f07000b;
         public static final int container=0x7f07001f;
         public static final int dateExpenseWasTakentextView=0x7f07000a;
-        public static final int deletemenuitem=0x7f070029;
-        public static final int editmenuitem=0x7f07002a;
+        public static final int deletemenuitem=0x7f07002d;
+        public static final int editmenuitem=0x7f07002e;
         public static final int endTimeText=0x7f07001e;
         public static final int expenseDescription=0x7f070011;
         public static final int expenseTypeDescription=0x7f07001b;
@@ -71,6 +72,9 @@ public final class R {
         public static final int imageView1=0x7f070001;
         public static final int linearLayout1=0x7f070002;
         public static final int linearLayout2=0x7f070024;
+        public static final int linearLayout3=0x7f07002a;
+        public static final int linearLayout4=0x7f07002b;
+        public static final int scrollView1=0x7f070029;
         public static final int startTimeText=0x7f07001d;
         public static final int textView1=0x7f070010;
         public static final int textView2=0x7f070007;
@@ -84,6 +88,7 @@ public final class R {
         public static final int expensetypegridlayout=0x7f030003;
         public static final int expensetypemaintenance=0x7f030004;
         public static final int main=0x7f030005;
+        public static final int reportsmain=0x7f030006;
     }
     public static final class menu {
         public static final int recordmenu=0x7f060000;
@@ -100,6 +105,7 @@ public final class R {
         public static final int edit_record=0x7f050010;
         public static final int end_time=0x7f050014;
         public static final int expense_description=0x7f050005;
+        public static final int expense_details=0x7f050016;
         public static final int expense_reg=0x7f050007;
         public static final int expense_reg_access=0x7f050001;
         public static final int expense_type=0x7f050008;
@@ -109,6 +115,7 @@ public final class R {
         public static final int reports=0x7f05000c;
         public static final int select=0x7f050004;
         public static final int start_time=0x7f050013;
+        public static final int total_expenses=0x7f050015;
         public static final int value=0x7f05000a;
     }
 }

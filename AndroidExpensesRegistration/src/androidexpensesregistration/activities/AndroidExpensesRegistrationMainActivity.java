@@ -12,8 +12,7 @@ public class AndroidExpensesRegistrationMainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        //ImageView view = (ImageView) findViewById(R.id.imageView1);        
+        setContentView(R.layout.main);              
         Button btnAdmintration = (Button) findViewById(R.id.AdmAccessButton);        
         Button btnRegisterExpense = (Button) findViewById(R.id.RegExpenseAccessButton);
         if (btnAdmintration != null)

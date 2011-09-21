@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -137,21 +138,41 @@ public class RegisterExpenseActivity extends Activity {
 					int pos, long id) {				
 				ExpenseType expenseType = (ExpenseType) adapterView.getItemAtPosition(pos);
 				if (expenseType != null)
-					valueField.setText(expenseType.toString());
-			}
-
+					valueField.setText(String.valueOf(expenseType.getValue()));
+			}			
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {										
 			}					
-		});
+		});		
 		expenseTypeSpinner.setPrompt(getString(R.string.select));
-		ArrayAdapter<ExpenseType> expensetypeAdapter = new ArrayAdapter<ExpenseType>(expenseTypeSpinner.getContext(), android.R.layout.simple_spinner_item);
-		expensetypeAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+		configureExpenseTypeSpinner();		
+	}
+	
+	private void configureExpenseTypeSpinner() {
 		ExpenseTypeRepository expenseTypeRepository = new ExpenseTypeRepository(getApplicationContext());
+		expenseTypeSpinner = (Spinner) findViewById(R.id.typeExpenseSpinner);
+		ArrayAdapter<ExpenseType> expensetypeAdapter = new ArrayAdapter<ExpenseType>(expenseTypeSpinner.getContext(), android.R.layout.simple_spinner_item);
+		expensetypeAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);		
 		for (ExpenseType expenseType : expenseTypeRepository.all()) {
 			expensetypeAdapter.add(expenseType);
-		}
+		}		
 		expenseTypeSpinner.setAdapter(expensetypeAdapter);
+		setSuggestedValueFor(expenseTypeSpinner, expensetypeAdapter, expenseTypeRepository);
+		expenseTypeRepository = null;
+	}
+	
+	private void setSuggestedValueFor(Spinner expenseTypeSpinner,
+			ArrayAdapter<ExpenseType> expensetypeAdapter,
+			ExpenseTypeRepository expenseTypeRepository) {		
+		ExpenseType suggestedExpenseType = null;
+		try {
+			suggestedExpenseType = expenseTypeRepository.getSuggestedExpenseTypeForNow();
+		} catch (Exception e) {			
+			Log.e("Error getting expense type suggestion", e.getMessage());
+		}
+		if (suggestedExpenseType != null){
+			expenseTypeSpinner.setSelection(expensetypeAdapter.getPosition(suggestedExpenseType));			
+		}
 	}
 	
 	@Override
