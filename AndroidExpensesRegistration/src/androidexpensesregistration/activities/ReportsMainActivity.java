@@ -25,13 +25,22 @@ public class ReportsMainActivity extends Activity {
 			}
 		});
         TextView totalOfExpensesTextView = (TextView) findViewById(R.id.totalExpensesValueText);
-        setTotalAmountOfExpensesFor(totalOfExpensesTextView);
+        ExpensesRepository expensesRepository = new ExpensesRepository(getApplicationContext());
+        setTotalAmountOfExpensesFor(totalOfExpensesTextView, expensesRepository);
+        setExpenseTotalsPerType(expensesRepository);
     }
 
-	private void setTotalAmountOfExpensesFor(TextView totalOfExpensesTextView) {
-		ExpensesRepository expensesRepository = new ExpensesRepository(getApplicationContext());
-		//TODO - Possibilitar troca de moeda padrão
-		totalOfExpensesTextView.setText("R$ ".concat(String.valueOf(expensesRepository.getAllExpensesSum())));
+	private void setExpenseTotalsPerType(ExpensesRepository expensesRepository) {
+		
+	}
+
+	private void setTotalAmountOfExpensesFor(TextView totalOfExpensesTextView, ExpensesRepository expensesRepository) {				
+		totalOfExpensesTextView.setText(getCurrencyString().concat(" ").concat(String.valueOf(expensesRepository.getAllExpensesSum())));
 		expensesRepository = null;
+	}
+
+	private String getCurrencyString() {
+		//TODO - Possibilitar troca de moeda padrão
+		return "R$";
 	}
 }
