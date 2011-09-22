@@ -1,9 +1,13 @@
 package androidexpensesregistration.domain.repository;
 
+import java.util.Collection;
+
 import android.content.Context;
 import androidexpensesregistration.domain.datamappers.ExpenseDataMapper;
 import androidexpensesregistration.domain.infra.ExpensesDataBaseAdapter;
 import androidexpensesregistration.domain.model.Expense;
+import androidexpensesregistration.helpers.ExpensePerTypeHelper;
+import androidexpensesregistration.helpers.ExpensePerTypeRecordHelper;
 
 public class ExpensesRepository extends Repository<Expense> {
 	private static final String COLUMNS_STRING[] = 
@@ -19,5 +23,14 @@ public class ExpensesRepository extends Repository<Expense> {
 		}
 		return sum;
 	}
-
+	
+	public Collection<ExpensePerTypeRecordHelper> getExpensesPerType(){
+		ExpensePerTypeHelper expensePerTypeHelper = new ExpensePerTypeHelper();
+		for (Expense expense : this.all()) {
+			if (expense.getExpenseType() != null){
+				expensePerTypeHelper.addExpenseTypeAndValueRecord(expense.getExpenseType(), expense.getTotalExpenseValue());
+			}
+		}
+		return expensePerTypeHelper.getExpensesPerTypeRecordDTOs();
+	}	
 }

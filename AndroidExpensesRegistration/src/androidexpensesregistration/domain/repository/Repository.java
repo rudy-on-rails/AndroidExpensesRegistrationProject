@@ -80,5 +80,7 @@ public abstract class Repository<T extends IGenericRecord> implements IRepositor
 		super.finalize();
 	}	
 	
-	
+	public Context getUsedContext(){
+		return this.context;
+	}
 }

@@ -1,14 +1,23 @@
 package androidexpensesregistration.test;
 
 import java.math.BigDecimal;
+import java.util.Collection;
+
 import android.test.AndroidTestCase;
 import androidexpensesregistration.domain.model.Expense;
+import androidexpensesregistration.domain.model.ExpenseType;
+import androidexpensesregistration.domain.repository.ExpenseTypeRepository;
 import androidexpensesregistration.domain.repository.ExpensesRepository;
+import androidexpensesregistration.factories.ExpenseFactory;
+import androidexpensesregistration.factories.ExpenseTypeFactory;
 import androidexpensesregistration.helpers.DateHelper;
+import androidexpensesregistration.helpers.ExpensePerTypeRecordHelper;
 
 public class ExpenseRepositoryTest extends AndroidTestCase {
 	
 	private ExpensesRepository expensesRepository;
+	private ExpenseTypeRepository expenseTypeRepository;
+	
 	public ExpenseRepositoryTest() {
 		super();
 	}
@@ -16,6 +25,7 @@ public class ExpenseRepositoryTest extends AndroidTestCase {
 	protected void setUp() throws Exception {
 		getContext().deleteDatabase("expenses_registration.db");
 		expensesRepository = new ExpensesRepository(getContext());
+		expenseTypeRepository = new ExpenseTypeRepository(getContext());
 		super.setUp();
 	}
 
@@ -39,5 +49,27 @@ public class ExpenseRepositoryTest extends AndroidTestCase {
 	
 	public void testGetTotalExpensesAmountShouldReturnAllExpensesSumNoExpenseReturn0(){
 		assertEquals(Float.valueOf(0), expensesRepository.getAllExpensesSum());
+	}
+	
+	public void testGetTotalsExpentPerTypeShouldReturnAnDTOCollectionCaseTheresRecords(){
+		ExpenseType expenseTypeOne = ExpenseTypeFactory.createPersistentExpenseType(expenseTypeRepository);
+		ExpenseType expenseTypeTwo = ExpenseTypeFactory.createPersistentExpenseType(expenseTypeRepository);
+		for (int i = 0; i < 2; i++) {
+			ExpenseFactory.createPersistentExpense(expensesRepository, expenseTypeOne);
+		}
+		for (int i = 0; i < 4; i++) {
+			ExpenseFactory.createPersistentExpense(expensesRepository, expenseTypeTwo);
+		}
+		Collection<ExpensePerTypeRecordHelper> expensePerTypeRecordHelpers = expensesRepository.getExpensesPerType();
+		assertEquals(2, expensePerTypeRecordHelpers.size());
+		ExpensePerTypeRecordHelper firstExpensePerTypeRecordHelper = (ExpensePerTypeRecordHelper)expensePerTypeRecordHelpers.toArray()[0];
+		ExpensePerTypeRecordHelper secondExpensePerTypeRecordHelper = (ExpensePerTypeRecordHelper)expensePerTypeRecordHelpers.toArray()[1];
+		assertEquals((float)50.0, firstExpensePerTypeRecordHelper.getExpenseTypeTotalValueExpent());
+		assertEquals((float)100.0, secondExpensePerTypeRecordHelper.getExpenseTypeTotalValueExpent());
+	}
+	
+	public void testGetTotalsExpentPerTypeShouldReturnEmptyArrayListCaseTheresNothing(){
+		Collection<ExpensePerTypeRecordHelper> expensePerTypeRecordHelpers = expensesRepository.getExpensesPerType();
+		assertEquals(0, expensePerTypeRecordHelpers.size());
 	}
 }
