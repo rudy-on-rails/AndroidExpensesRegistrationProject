@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 import androidexpensesregistration.domain.model.Expense;
 import androidexpensesregistration.domain.model.IGenericRecord;
 import androidexpensesregistration.domain.repository.ExpenseTypeRepository;
@@ -46,7 +47,7 @@ public class ExpenseDataMapper implements DataMapper<Expense>{
 				if (cursor.getInt(COL_EXPENSE_TYPE_ID) != 0)
 					expense.setExpenseType(new ExpenseTypeRepository(context).findById(cursor.getInt(COL_EXPENSE_TYPE_ID)));
 			} catch (Exception e) {
-				// TODO: handle exception
+				Log.d("Error getting expense type...", e.getMessage());
 			}			
 			expense.setDateExpenseWasTaken(DateHelper.parseDateInputStringToDate(cursor.getString(COL_EXPENSE_DATE)));			
 			expensesArrayList.add(expense);

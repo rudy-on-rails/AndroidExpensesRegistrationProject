@@ -36,7 +36,7 @@ public class DateHelper {
 			return formatter.parse(screenString);
 		} catch (java.text.ParseException e) {
 			// TODO Auto-generated catch block
-			Log.e("Parsing Failed...", "Parsing ISO8601 datetime failed", e);
+			Log.e("Parsing Failed...", "Parsing Date Object datetime failed");
 		}
 		return null;		
 	}
@@ -46,7 +46,7 @@ public class DateHelper {
 		try {
 			return iso8601Format.parse(inputString);
 		} catch (java.text.ParseException e) {
-			Log.e("Parsing Failed...", "Parsing ISO8601 datetime failed", e);
+			Log.e("Parsing Failed...", "Parsing ISO8601 datetime failed");
 		}
 		return null;
 	}

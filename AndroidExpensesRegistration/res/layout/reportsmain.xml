@@ -8,7 +8,7 @@
     <LinearLayout android:baselineAligned="true" android:layout_width="match_parent" android:weightSum="1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_marginLeft="10dip">
         <TextView android:layout_width="wrap_content" android:layout_gravity="left" android:textAppearance="?android:attr/textAppearanceMedium" android:textStyle="bold" android:layout_marginTop="8dip" android:id="@+id/textView2" android:layout_height="wrap_content" android:textColor="@color/black" android:textSize="16dip" android:text="@string/reports"></TextView>    
     </LinearLayout>
-    <ScrollView android:layout_width="match_parent" android:id="@+id/scrollView1" android:layout_marginLeft="10dip" android:layout_marginRight="10dip" android:layout_marginTop="20dip" android:layout_height="260dp">
+    <ScrollView android:layout_width="match_parent" android:id="@+id/scrollView1" android:layout_marginLeft="10dip" android:layout_marginRight="10dip" android:layout_marginTop="10dip" android:layout_height="270dp" android:scrollbars="vertical" android:fillViewport="true">
         <LinearLayout android:layout_height="270dp" android:orientation="vertical" android:id="@+id/linearLayout1" android:weightSum="1" android:layout_width="match_parent" android:layout_marginTop="10dip">
             <LinearLayout android:layout_width="match_parent" android:orientation="horizontal" android:id="@+id/LinearLayout03" android:layout_height="wrap_content">
                 <LinearLayout android:orientation="horizontal" android:id="@+id/LinearLayout04" android:layout_height="wrap_content" android:layout_width="wrap_content">
@@ -18,13 +18,12 @@
                     <TextView android:layout_width="wrap_content" android:text="TextView" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:typeface="monospace" android:textSize="13dip" android:id="@+id/totalExpensesValueText"></TextView>
                 </LinearLayout>
             </LinearLayout>
-            <LinearLayout android:layout_width="match_parent" android:orientation="horizontal" android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:layout_marginTop="10dip">
+            <LinearLayout android:layout_width="match_parent" android:orientation="horizontal" android:layout_height="wrap_content" android:id="@+id/linearLayoutContainer1" android:layout_marginTop="20dip">
                 <LinearLayout android:layout_weight="0.85" android:orientation="horizontal" android:id="@+id/linearLayout3" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="center_vertical">
                     <TextView android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:typeface="monospace" android:textStyle="bold" android:textColor="@color/black" android:text="@string/expense_details" android:layout_width="wrap_content" android:layout_gravity="center" android:textSize="13dip"></TextView>
                 </LinearLayout>
-                <LinearLayout android:layout_width="wrap_content" android:layout_weight="1" android:orientation="horizontal" android:id="@+id/linearLayout4" android:layout_height="match_parent">
-                </LinearLayout>
             </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:id="@+id/linearLayoutDetails" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbars="vertical" android:layout_height="match_parent"></LinearLayout>
         </LinearLayout>
     </ScrollView>
     <LinearLayout android:orientation="vertical" android:weightSum="1" android:id="@+id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content">
