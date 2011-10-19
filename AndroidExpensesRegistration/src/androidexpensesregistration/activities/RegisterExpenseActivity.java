@@ -61,6 +61,8 @@ public class RegisterExpenseActivity extends Activity {
         Button pickDateButton = (Button) findViewById(R.id.changeDateButton);
         final ImageButton backButton = (ImageButton) findViewById(R.id.BackButton);
         final ImageButton confirmButton = (ImageButton) findViewById(R.id.ConfirmButton);
+        EditText quantityField = (EditText) findViewById(R.id.QuantityText);
+        quantityField.setText("1");
         Calendar c = Calendar.getInstance();
         fillExpenseTypeField();
         mDay = c.get(Calendar.DAY_OF_MONTH);
@@ -87,9 +89,9 @@ public class RegisterExpenseActivity extends Activity {
 			public void onClick(View v) {
 				confirmButton.setImageDrawable(getResources().getDrawable(R.drawable.confirmhighlight));
 				TextView dateExpenseTextView = (TextView) findViewById(R.id.dateExpenseWasTakentextView); 
-				EditText descriptionField = (EditText) findViewById(R.id.expenseDescription);
-				valueField = (EditText) findViewById(R.id.ValueText);							
 				EditText quantityField = (EditText) findViewById(R.id.QuantityText);
+				EditText descriptionField = (EditText) findViewById(R.id.expenseDescription);
+				valueField = (EditText) findViewById(R.id.ValueText);											
 				EditTextRequired quantityFieldRequired = 
 						new EditTextRequired(quantityField);
 				EditTextRequired valueFieldRequired = 
