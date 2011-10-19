@@ -32,5 +32,5 @@ public class ExpensesRepository extends Repository<Expense> {
 			}
 		}
 		return expensePerTypeHelper.getExpensesPerTypeRecordDTOs();
-	}	
+	}
 }

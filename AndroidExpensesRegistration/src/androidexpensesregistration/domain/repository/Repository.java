@@ -83,4 +83,8 @@ public abstract class Repository<T extends IGenericRecord> implements IRepositor
 	public Context getUsedContext(){
 		return this.context;
 	}
+	
+	public void deleteAll() {
+		sqliteDatabase.delete(tableName, null, null);
+	}
 }

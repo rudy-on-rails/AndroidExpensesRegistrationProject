@@ -23,4 +23,5 @@
     <string name="end_time">Hora Final Aproximada:</string>
     <string name="total_expenses">Total de Despesas:</string>
     <string name="expense_details">Detalhamento de Despesas</string>
+    <string name="clear_expense_history">Lipar Histórico de Despesa</string>
 </resources>
