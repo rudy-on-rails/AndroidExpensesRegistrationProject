@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import android.content.Context;
 import androidexpensesregistration.domain.datamappers.ExpenseDataMapper;
-import androidexpensesregistration.domain.infra.ExpensesDataBaseAdapter;
+import androidexpensesregistration.infra.adapters.ExpensesDataBaseAdapter;
 import androidexpensesregistration.domain.model.Expense;
 import androidexpensesregistration.helpers.ExpensePerTypeHelper;
 import androidexpensesregistration.helpers.ExpensePerTypeRecordHelper;

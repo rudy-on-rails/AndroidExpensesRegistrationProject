@@ -1,4 +1,4 @@
-package androidexpensesregistration.domain.infra;
+package androidexpensesregistration.infra.adapters;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
