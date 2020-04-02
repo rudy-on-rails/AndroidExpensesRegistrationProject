@@ -1,6 +1,7 @@
+I was bored in 2012 and android apps didn't suit my needs, so I've decided to create an app that registered my expenses per category
+
 # Android Expenses Registration Project
-	Projeto de um sistema de registro de despesas em Java para Android, utilizando a API
-	de desenvolvimento para Android 2.2	
+	A project of expenses registration built on the ancient architecture of Android's SDK
 
 ## Dependencias do Projeto
 
